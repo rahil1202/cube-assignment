@@ -1,4 +1,3 @@
-// src/CustomerList.tsx
 import React, { useState } from "react";
 import CustomerCard from "./CustomerCard";
 import { Customer } from "./types";

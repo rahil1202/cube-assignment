@@ -1,4 +1,3 @@
-// src/CustomerDetails.tsx
 import React, { useState, useEffect } from "react";
 import { Customer } from "./types";
 import CustomerPhotoGrid from "./CustomerPhotoGrid";
@@ -12,10 +11,14 @@ const CustomerDetails: React.FC<CustomerDetailsProps> = ({ customer }) => {
   const [images, setImages] = useState<string[]>([]);
 
   const fetchImages = async () => {
-    const response = await axios(
-      "https://api.unsplash.com/photos/random/?count=9&client_id=bQdUYNHYmphYzquiuHP8lL4vzQ-V2hrzuQQgGrE90J0"
-    );
-    setImages(response.data.map((item: any) => item.urls.small));
+    try {
+      const response = await axios.get(
+        `https://api.unsplash.com/photos/random/?count=9&client_id=${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}`
+      );
+      setImages(response.data.map((item: any) => item.urls.small));
+    } catch (error) {
+      console.error("Error fetching images from Unsplash:", error);
+    }
   };
 
   useEffect(() => {
@@ -23,7 +26,7 @@ const CustomerDetails: React.FC<CustomerDetailsProps> = ({ customer }) => {
 
     const interval = setInterval(() => {
       fetchImages();
-    }, 10000);
+    }, 5000);
 
     return () => {
       clearInterval(interval);

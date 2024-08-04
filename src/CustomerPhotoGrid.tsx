@@ -1,4 +1,3 @@
-// src/CustomerPhotoGrid.tsx
 import React from "react";
 
 interface CustomerPhotoGridProps {
@@ -9,7 +8,7 @@ const CustomerPhotoGrid: React.FC<CustomerPhotoGridProps> = ({ images }) => {
   return (
     <div className="customer-photo-grid">
       {images.map((image) => (
-        <img key={image} src={image} alt="Customer photo" />
+        <img key={image} src={image} alt="" />
       ))}
     </div>
   );
