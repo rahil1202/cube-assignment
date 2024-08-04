@@ -36,7 +36,7 @@ const CustomerDetails: React.FC<CustomerDetailsProps> = ({ customer }) => {
   return (
     <div className="customer-details-container">
       <div className="customer-details">
-        <h2 className="customer-name">{customer.name} details here...</h2>
+        <h2 className="customer-name">{customer.name}</h2>
         <p className="customer-title">Position : {customer.title}</p>
         <p className="customer-address">Address : {customer.address}</p>
       </div>

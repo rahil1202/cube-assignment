@@ -1,10 +1,38 @@
+:root {
+  /* Light mode colors */
+  --bg-primary: #f4f4f9;
+  --bg-secondary: #fff;
+  --text-primary: #333;
+  --text-secondary: #666;
+  --text-tertiary: #999;
+  --border-color: #ddd;
+  --accent-color: #3f51b5;
+  --card-hover: rgba(0, 0, 0, 0.1);
+  --selected-bg: #e0f7fa;
+}
+
+/* Dark mode colors */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #121212;
+    --bg-secondary: #1e1e1e;
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --text-tertiary: #808080;
+    --border-color: #2a2a2a;
+    --accent-color: #7986cb;
+    --card-hover: rgba(255, 255, 255, 0.1);
+    --selected-bg: #1a237e;
+  }
+}
+
 /* General Styles */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Arial', sans-serif;
-  background-color: #f4f4f9;
-  color: #333;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 /* Container Styles */
@@ -12,7 +40,7 @@ body {
   display: flex;
   flex-wrap: nowrap;
   height: 80vh;
-  background-color: #fff;
+  background-color: var(--bg-secondary);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -25,8 +53,8 @@ body {
   padding: 15px;
   overflow-y: scroll;
   height: 145vh;
-  background-color: #fafafa;
-  border-right: 1px solid #ddd;
+  background-color: var(--bg-primary);
+  border-right: 1px solid var(--border-color);
 }
 
 /* Customer Card Styles */
@@ -35,25 +63,25 @@ body {
   margin-bottom: 15px;
   width: 90%;
   text-align: center;
-  border: 1px solid #e0e0e0;
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   cursor: pointer;
-  background-color: #fff;
+  background-color: var(--bg-secondary);
   transition: box-shadow 0.3s ease;
 }
 
 .customer-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px var(--card-hover);
 }
 
 .selected {
-  background-color: #e0f7fa;
+  background-color: var(--selected-bg);
 }
 
 /* Header Styles */
 h1 {
-  background-color: #3f51b5;
-  color: #fff;
+  background-color: var(--accent-color);
+  color: var(--bg-secondary);
   padding: 10px;
   margin-bottom: 20px;
   width: 100%;
@@ -75,7 +103,7 @@ h1 {
   flex-direction: column;
   width: 90%;
   padding: 25px;
-  background-color: #fff;
+  background-color: var(--bg-secondary);
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -90,19 +118,19 @@ h1 {
 .customer-name {
   font-size: 2.2rem;
   font-weight: bold;
-  color: #3f51b5;
+  color: var(--accent-color);
   margin-bottom: 10px;
 }
 
 .customer-title {
   font-size: 1.2rem;
-  color: #666;
+  color: var(--text-secondary);
   margin-bottom: 10px;
 }
 
 .customer-address {
   font-size: 1rem;
-  color: #999;
+  color: var(--text-tertiary);
   margin-bottom: 20px;
 }
 
@@ -124,3 +152,20 @@ h1 {
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
